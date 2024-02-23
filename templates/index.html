@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <title>Document Title</title>
+</head>
+
+<body>
+  <h1>{{ title }}</h1>
+  <h2>Users rendered from template variables</h2>
+  <section class="users">
+    {% for user in users %}
+    <li>{{ user.name }}</li>
+    {% endfor %}
+  </section>
+  <br />
+
+  <h2>Users rendered through htmx call:</h2>
+  <section hx-get="/users" hx-trigger="load" class="users"></section>
+</body>
+
+</html>
